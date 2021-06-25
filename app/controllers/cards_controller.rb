@@ -1,6 +1,5 @@
 class CardsController < ApplicationController
   before_action :set_card, only: [:show, :update, :destroy]
-  before_action :validate_card, only: [:create, :update]
 
   # GET /cards
   def index
@@ -48,12 +47,5 @@ class CardsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def card_params
       params.require(:card).permit(:title, :description, :completed)
-    end
-
-    def validate_card
-      if params.include("bum")
-        render json: @card.errors, status: :unprocessable_entity
-      else
-        return true
     end
 end
