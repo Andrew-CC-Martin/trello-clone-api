@@ -1,9 +1,10 @@
 class CardsController < ApplicationController
+  before_action :authenticate_user
   before_action :set_card, only: [:show, :update, :destroy]
 
   # GET /cards
   def index
-    @cards = Card.all
+    @cards = current_user.cards.all
 
     render json: @cards
   end
@@ -15,7 +16,7 @@ class CardsController < ApplicationController
 
   # POST /cards
   def create
-    @card = Card.new(card_params)
+    @card = current_user.cards.new(card_params)
 
     if @card.save
       render json: @card, status: :created, location: @card
@@ -41,7 +42,7 @@ class CardsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_card
-      @card = Card.find(params[:id])
+      @card = current_user.cards.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
