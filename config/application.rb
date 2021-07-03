@@ -24,6 +24,9 @@ module TrelloCloneApi
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1 and config.autoloader = :classic
 
+    # Configure test framework to be Rspec
+    config.generators.test_framework = :rspec
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

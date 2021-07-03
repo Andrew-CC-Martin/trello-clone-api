@@ -41,3 +41,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Knock gem is for auth using JWTs
 gem "knock", "~> 2.1"
+
+gem "rspec-rails", "~> 5.0"
